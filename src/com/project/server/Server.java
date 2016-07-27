@@ -22,8 +22,8 @@ import com.mysql.fabric.jdbc.FabricMySQLDriver;
 		    private static ResultSet rs;
 		    private static String message;
 		    private static final String URL = "jdbc:mysql://localhost:3306/qrcontestdb";
-			private static final String US = "root";
-			private static final String PASS = "root";
+			private static final String US = "********";// secret user name
+			private static final String PASS = "*******"; // secret password
 		    private static String answer;
 		    private static Connection connection;
 		    private static Statement statement;
@@ -41,7 +41,7 @@ import com.mysql.fabric.jdbc.FabricMySQLDriver;
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-				  
+				  //start server
 		        try {
 		            serverSocket = new ServerSocket(4444);  //Server socket
 		            while (true) {
@@ -79,6 +79,7 @@ import com.mysql.fabric.jdbc.FabricMySQLDriver;
 			                		 
 			                	 }
 			                	 message = sc.nextLine();
+			                	 //sing in or sign up
 			                	 try {
 			             			  connection = DriverManager.getConnection(URL, US, PASS);
 			             			 statement = connection.createStatement();
@@ -107,6 +108,7 @@ import com.mysql.fabric.jdbc.FabricMySQLDriver;
 			                	 pw.println(score);
 			                	 pw.flush();
 			                 }else{
+			                 	//tasks
 			                	 String id = "";
 			                	 try {
 				             			  connection = DriverManager.getConnection(URL, US, PASS);
@@ -151,7 +153,7 @@ import com.mysql.fabric.jdbc.FabricMySQLDriver;
 					  		                	 System.out.println(answer);
 					  		                	 
 					  		                	if(answer.equals(ans)){
-					  		                		pw.println("Задача решена правильно");
+					  		                		pw.println("Г‡Г Г¤Г Г·Г  Г°ГҐГёГҐГ­Г  ГЇГ°Г ГўГЁГ«ГјГ­Г®");
 					  		                		System.out.println("Good");
 					  		                		 pw.flush();
 					  		                		try {
@@ -166,7 +168,7 @@ import com.mysql.fabric.jdbc.FabricMySQLDriver;
 					  		             		}
 					  		                		 
 					  		                	}else{
-					  		                		pw.println("Неправильно");
+					  		                		pw.println("ГЌГҐГЇГ°Г ГўГЁГ«ГјГ­Г®");
 					  		                		 pw.flush();
 					  		                		 System.out.println("Bad");
 					  		                	} 
